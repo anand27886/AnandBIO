@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anand J. Upadhyay — Career Log</title>
+<meta name="description" content="Anand J. Upadhyay — IT Delivery &amp; Project Manager. 13+ years turning complex systems into shipped outcomes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-void:      #0A0D13;
+    --bg-panel:     #11151E;
+    --bg-panel-2:   #161B26;
+    --line:         #232A38;
+    --ink:          #E7E9EE;
+    --ink-dim:      #8A93A6;
+    --ink-faint:    #565F72;
+    --teal:         #4FB8A8;
+    --teal-dim:     #2E4A46;
+    --amber:        #E8A33D;
+    --amber-dim:    #4A3D24;
+    --blue:         #6C9BD1;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-mono:    'JetBrains Mono', monospace;
+    --font-body:    'Inter', sans-serif;
+    --radius:       6px;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; }
+  }
+
+  body{
+    background:var(--bg-void);
+    color:var(--ink);
+    font-family:var(--font-body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{ color:inherit; text-decoration:none; }
+
+  :focus-visible{
+    outline:2px solid var(--teal);
+    outline-offset:3px;
+    border-radius:2px;
+  }
+
+  ::selection{ background:var(--teal-dim); color:var(--ink); }
+
+  .wrap{
+    max-width:840px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  /* ---------- Terminal window chrome ---------- */
+  .window{
+    max-width:880px;
+    margin:40px auto 80px;
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 40px 100px -40px rgba(0,0,0,0.7);
+  }
+
+  .titlebar{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:14px 18px;
+    background:var(--bg-panel-2);
+    border-bottom:1px solid var(--line);
+  }
+
+  .dots{ display:flex; gap:7px; flex-shrink:0; }
+  .dots span{ width:11px; height:11px; border-radius:50%; display:block; }
+  .dots span:nth-child(1){ background:#4a505f; }
+  .dots span:nth-child(2){ background:#4a505f; }
+  .dots span:nth-child(3){ background:#4a505f; }
+
+  .filename{
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    color:var(--ink-dim);
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+  .filename b{ color:var(--ink); font-weight:500; }
+
+  /* ---------- Sticky tab nav ---------- */
+  .tabs{
+    display:flex;
+    overflow-x:auto;
+    border-bottom:1px solid var(--line);
+    background:var(--bg-panel);
+    position:sticky;
+    top:0;
+    z-index:10;
+    scrollbar-width:none;
+  }
+  .tabs::-webkit-scrollbar{ display:none; }
+
+  .tabs a{
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    color:var(--ink-faint);
+    padding:12px 18px;
+    white-space:nowrap;
+    border-right:1px solid var(--line);
+    border-bottom:2px solid transparent;
+    transition:color .15s ease, border-color .15s ease;
+  }
+  .tabs a:hover{ color:var(--ink); }
+  .tabs a.active{ color:var(--teal); border-bottom-color:var(--teal); }
+
+  /* ---------- Section shell ---------- */
+  section{ padding:56px 0 8px; }
+  .wrap section{ padding:0; }
+
+  .section-inner{ padding:52px 32px; border-bottom:1px solid var(--line); }
+  .section-inner:last-child{ border-bottom:none; }
+
+  .file-tag{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:var(--font-mono);
+    font-size:12px;
+    /*color:var(--ink-faint);*/
+	color:var(--ink-faint);
+    letter-spacing:.04em;
+    margin-bottom:28px;
+  }
+  .file-tag::before{ content:"//"; color:var(--ink-faint); }
+  .file-tag b{ color:var(--ink-dim); font-weight:500; }
+
+  /* ---------- Hero ---------- */
+  .hero{ padding:64px 32px 52px; }
+  .prompt{
+    font-family:var(--font-mono);
+    font-size:13px;
+    color:var(--teal);
+    margin-bottom:14px;
+  }
+  .prompt::before{ content:"$ "; color:var(--ink-faint); }
+
+  .hero h1{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:clamp(2rem, 5vw, 3rem);
+    line-height:1.12;
+    letter-spacing:-0.01em;
+    margin-bottom:14px;
+  }
+
+  .hero .tagline{
+    font-family:var(--font-mono);
+    font-size:14.5px;
+    color:var(--ink-dim);
+    margin-bottom:26px;
+  }
+  .hero .tagline::before{ content:"// "; color:var(--ink-faint); }
+
+  .badge-row{ display:flex; flex-wrap:wrap; gap:10px; margin-bottom:34px; }
+  .badge{
+    font-family:var(--font-mono);
+    font-size:11.5px;
+    padding:5px 10px;
+    border-radius:20px;
+    border:1px solid var(--line);
+    color:var(--ink-dim);
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+  }
+  .badge .dot{ width:6px; height:6px; border-radius:50%; background:var(--teal); }
+  .badge .dot.blink{ animation:blink 1.6s ease-in-out infinite; }
+  @keyframes blink{ 0%,100%{ opacity:1; } 50%{ opacity:.25; } }
+
+  .cta-row{ display:flex; flex-wrap:wrap; gap:12px; }
+  .btn{
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    padding:11px 18px;
+    border-radius:var(--radius);
+    border:1px solid var(--line);
+    transition:border-color .15s ease, background .15s ease, transform .15s ease;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+  }
+  .btn:hover{ transform:translateY(-1px); }
+  .btn.primary{ background:var(--teal); color:#08110F; border-color:var(--teal); font-weight:600; }
+  .btn.primary:hover{ background:#5fc6b5; }
+  .btn.ghost{ color:var(--ink-dim); }
+  .btn.ghost:hover{ border-color:var(--ink-faint); color:var(--ink); }
+
+  /* ---------- README ---------- */
+  .readme p{
+    color:var(--ink-dim);
+    font-size:15px;
+    max-width:64ch;
+  }
+  .readme p + p{ margin-top:16px; }
+  .readme strong{ color:var(--ink); font-weight:500; }
+
+  /* ---------- Changelog ---------- */
+  .entry{
+    padding:22px 0;
+    border-top:1px solid var(--line);
+    opacity:0;
+    transform:translateY(10px);
+    transition:opacity .5s ease, transform .5s ease;
+  }
+  .entry.visible{ opacity:1; transform:none; }
+  .entry:first-of-type{ border-top:none; padding-top:0; }
+
+  .entry-head{
+    display:flex;
+    align-items:baseline;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:10px;
+  }
+  .entry-version{
+    font-family:var(--font-mono);
+    font-weight:600;
+    font-size:15px;
+    color:var(--ink);
+  }
+  .entry-role{
+    font-family:var(--font-display);
+    font-size:15px;
+    color:var(--ink-dim);
+    font-weight:500;
+  }
+  .entry-meta{
+    font-family:var(--font-mono);
+    font-size:11.5px;
+    color:var(--ink-faint);
+    margin-left:auto;
+  }
+  .status-current{
+    font-family:var(--font-mono);
+    font-size:10.5px;
+    color:var(--teal);
+    border:1px solid var(--teal-dim);
+    background:rgba(79,184,168,0.08);
+    padding:2px 8px;
+    border-radius:20px;
+  }
+
+  .entry ul{ list-style:none; }
+  .entry li{
+    display:flex;
+    gap:10px;
+    font-size:14px;
+    color:var(--ink-dim);
+    padding:5px 0;
+  }
+  .tag{
+    font-family:var(--font-mono);
+    font-size:10.5px;
+    font-weight:600;
+    padding:1px 7px;
+    border-radius:4px;
+    height:fit-content;
+    flex-shrink:0;
+    margin-top:2px;
+  }
+  .tag.added{ color:var(--teal); background:rgba(79,184,168,0.1); }
+  .tag.improved{ color:var(--blue); background:rgba(108,155,209,0.1); }
+  .tag.changed{ color:var(--amber); background:rgba(232,163,61,0.1); }
+
+  .fill{ color:var(--ink-faint); font-style:italic; }
+
+  .earlier{
+    margin-top:8px;
+    padding-top:20px;
+    border-top:1px solid var(--line);
+  }
+  .earlier-label{
+    font-family:var(--font-mono);
+    font-size:11px;
+    color:var(--ink-faint);
+    margin-bottom:14px;
+  }
+  .earlier-list{ display:flex; flex-direction:column; gap:10px; }
+  .earlier-item{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    font-size:13.5px;
+    color:var(--ink-faint);
+    font-family:var(--font-mono);
+  }
+  .earlier-item span:first-child{ color:var(--ink-dim); font-family:var(--font-body); }
+
+  /* ---------- Dependencies ---------- */
+  .dep-group{ margin-bottom:26px; }
+  .dep-group:last-child{ margin-bottom:0; }
+  .dep-key{
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--ink-faint);
+    margin-bottom:12px;
+  }
+  .dep-key::before{ content:"\"" ; }
+  /*-------------------------------Change------------------------------------*/
+  .dep-key::after{ content:"\":"; }
+  .pills{ display:flex; flex-wrap:wrap; gap:8px; }
+  .pill{
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    color:var(--ink);
+    background:var(--bg-panel-2);
+    border:1px solid var(--line);
+    padding:6px 12px;
+    border-radius:var(--radius);
+    transition:border-color .15s ease, color .15s ease;
+  }
+  .pill:hover{ border-color:var(--teal-dim); color:var(--teal); }
+  .note{
+    font-family:var(--font-mono);
+    font-size:11.5px;
+    color:var(--ink-faint);
+    margin-top:14px;
+  }
+  .note::before{ content:"// "; }
+
+  /* ---------- Now / Unreleased ---------- */
+  .unreleased ul{ list-style:none; }
+  .unreleased li{
+    display:flex;
+    gap:10px;
+    font-size:14.5px;
+    color:var(--ink-dim);
+    padding:7px 0;
+  }
+  .unreleased li::before{
+    content:"›";
+    color:var(--amber);
+    font-weight:700;
+  }
+
+  /* ---------- Contact ---------- */
+  .contact-cmd{
+    font-family:var(--font-mono);
+    font-size:13px;
+    color:var(--ink-dim);
+    background:var(--bg-panel-2);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:16px 18px;
+    margin-bottom:24px;
+    overflow-x:auto;
+    white-space:pre;
+  }
+  .contact-cmd .k{ color:var(--amber); }
+  .contact-cmd .v{ color:var(--teal); }
+  .contact-cmd .p{ color:var(--ink-faint); }
+
+  /* ---------- Footer ---------- */
+  footer{
+    text-align:center;
+    padding:28px 20px 50px;
+    font-family:var(--font-mono);
+    font-size:11.5px;
+    color:var(--ink-faint);
+  }
+
+  @media (max-width:640px){
+    .window{ margin:0; border-radius:0; border-left:none; border-right:none; }
+    .section-inner{ padding:40px 20px; }
+    .hero{ padding:48px 20px 40px; }
+    .entry-meta{ margin-left:0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="window">
+
+  <div class="titlebar">
+    <div class="dots"><span></span><span></span><span></span></div>
+    <div class="filename"><b>Anand-Upadhyay</b> / Career Log</div>
+  </div>
+
+  <nav class="tabs" id="tabs">
+    <a href="#readme" class="active">readme.md</a>
+    <a href="#log">changelog.md</a>
+    <a href="#deps">dependencies.json</a>
+    <a href="#now">unreleased</a>
+    <a href="#contact">contact.sh</a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero" id="readme">
+    <div class="prompt">whoami</div>
+    <h1>Anand J. Upadhyay</h1>
+    <div class="tagline">IT Delivery &amp; Project Manager · 13+ years turning complex systems into shipped outcomes</div>
+    <div class="badge-row">
+      <span class="badge"><span class="dot blink"></span> v13.2.0 stable</span>
+      <span class="badge">Ahmedabad, India</span>
+      <span class="badge">Open to Project / Delivery Manager roles</span>
+    </div>
+    <div class="cta-row">
+      <!-- EDIT ME: point these at your real resume PDF and LinkedIn URL -->
+      <a href="#https://www.linkedin.com/in/anandjrupadhyay" class="btn primary">↓ View résumé</a>
+      <a href="#https://www.linkedin.com/in/anandjrupadhyay" class="btn ghost">Connect on LinkedIn ↗</a>
+      <a href="#contact" class="btn ghost">Get in touch</a>
+    </div>
+  </div>
+
+  <!-- README -->
+  <div class="wrap"><div class="section-inner readme">
+    <div class="file-tag">README.md — <b>About Me</b></div>
+    <p><strong>13+ years</strong> spanning software development, team leadership, and IT project &amp; delivery management — across manufacturing, chemicals, automotive, retail, and food &amp; beverage. I've managed cross-functional teams and international projects, and I care about the unglamorous middle of delivery: scoping honestly, keeping stakeholders aligned, and shipping on time without burning out the team.</p>
+    <p>Hands-on with JIRA, Confluence, and AWS, with a growing focus on applying AI/ML tooling to how IT teams plan, track, and deliver work. Currently writing and sharing on <strong>AI in IT management</strong>.</p>
+  </div></div>
+
+  <!-- CHANGELOG -->
+  <div class="wrap"><div class="section-inner" id="log">
+    <div class="file-tag">Career Journey — <b>Experience</b></div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-role">Assistant Manager – IT, Astral Ltd</span>
+        <span class="status-current">current</span>
+        <span class="entry-meta"><!-- EDIT ME: add start date -->Dec-2022 – At Present</span>
+      </div>
+      <ul>
+        <li><span class="tag added">Added</span>
+		<span class="fill">Applied AI-assisted tools to streamline status reporting and reduce manual reporting effort across project workstreams.</span></li>
+        <li><span class="tag improved">Improved</span>
+		<span class="fill">Partnered with business stakeholders, external vendors, and technical teams to plan and deliver strategic technology solutions aligned to business goals.</span></li>
+		<li><span class="tag improved">Improved</span><span class="fill">Enhanced delivery governance by owning requirements definition, implementation planning, testing, deployment, issue resolution, and post-go-live support.</span>
+		</li>
+        <li><span class="tag changed">Changed</span><span class="fill">Transitioned to leading IT project delivery for the Adhesives business unit, overseeing application delivery, system enhancements, infrastructure coordination, and data migration initiatives.</span></li>
+      </ul>
+    </div>
+
+    <div class="earlier">
+      <!--<div class="earlier-label">// earlier releases — confirm order &amp; dates before publishing</div>-->
+      <div class="earlier-list">
+        <div class="earlier-item"><span>Gujarat Technological University</span><span>Sep-2021 – Dec-2022</span></div>
+        <div class="earlier-item"><span>BizVstara</span><span>Jan-2021 – Sep-2021</span></div>
+        <div class="earlier-item"><span>Landmark Group Companies</span><span>May-2014 – Jan-2021</span></div>
+        <div class="earlier-item"><span>Data Soft Technologies</span><span>Oct-2012 – May-2014</span></div>
+      </div>
+    </div>
+  </div></div>
+
+  <!-- DEPENDENCIES -->
+  <div class="wrap"><div class="section-inner" id="deps">
+    <div class="file-tag"><b>skills</b></div>
+    <div class="dep-group">
+      <div class="dep-key">Project &amp; Delivery Management</div>
+      <div class="pills">
+        <span class="pill">IT Project Management </span>
+        <span class="pill">Agile/Scrum Delivery  </span>
+        <span class="pill">Resource &amp; Capacity Planning  </span>
+        <span class="pill">Risk &amp; Stakeholder Management </span>
+        <span class="pill">Vendor Management</span>
+      </div>
+    </div>
+
+    <div class="dep-group">
+      <div class="dep-key">Cloud, Technical &amp; Security</div>
+      <div class="pills">
+        <span class="pill">SDLC &amp; System Integration </span>
+		<span class="pill">ASP.NET &amp; SQL</span>
+		<span class="pill">IT Operations</span>
+      </div>
+      <div class="note">hands-on experience — no passed certification exam</div>
+    </div>
+
+    <div class="dep-group">
+      <div class="dep-key">Tools &amp; Practices</div>
+      <div class="pills">
+        <span class="pill">JIRA</span>
+		<span class="pill">Asana </span>
+		<span class="pill">UAT Management</span>
+		<span class="pill">Requirement Gathering &amp; Scope Definition </span>
+		<span class="pill">AI Assisted Reporting &amp; Automation </span>
+      </div>
+    </div>
+    <div class="dep-group">
+      <div class="dep-key"> Certificates </div>
+      <div class="pills">
+        <span class="pill">Project Management Assessment</span>
+      </div>
+	  <div class="pills">
+        <span class="pill">Google AI Essential</span>
+      </div>
+    </div>
+  </div></div>
+
+  <!-- UNRELEASED -->
+  <div class="wrap"><div class="section-inner unreleased" id="now">
+    <div class="file-tag">UNRELEASED — <b>currently</b></div>
+    <ul>
+      <li>Writing &amp; sharing on AI in IT management, on LinkedIn</li>
+      <li>Exploring how AI/ML reshapes IT delivery and program management</li>
+      <li class="fill">[Add anything else you're building or exploring right now]</li>
+    </ul>
+  </div></div>
+
+  <!-- CONTACT -->
+  <div class="wrap"><div class="section-inner" id="contact">
+    <div class="file-tag">contact.sh — <b>reach out</b></div>
+    <div class="contact-cmd"><span class="p">$</span> contact <span class="k">--email</span> <span class="v">anand27886@gmail.com</span> <span class="k">--linkedin</span> <span class="v">https://www.linkedin.com/in/anandjrupadhyay</span> <span class="k">--location</span> <span class="v">Ahmedabad, IN</span></div>
+    <div class="cta-row">
+      <!-- EDIT ME: replace with your real email + LinkedIn URL -->
+      <a href="mailto:anand27886@gmail.com" class="btn primary">Email me</a>
+      <a href="#" class="btn ghost">LinkedIn ↗</a>
+    </div>
+  </div></div>
+
+  <footer>// end of file — thanks for reading the changelog</footer>
+
+</div>
+
+<script>
+  // Tab active-state on scroll
+  const sections = ['readme','log','deps','now','contact'].map(id => document.getElementById(id));
+  const tabs = Array.from(document.querySelectorAll('.tabs a'));
+
+  const setActive = (id) => {
+    tabs.forEach(t => t.classList.toggle('active', t.getAttribute('href') === '#' + id));
+  };
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) setActive(entry.target.id);
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+
+  sections.forEach(s => s && io.observe(s));
+
+  // Fade-in changelog entries
+  const entryIO = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting){
+        entry.target.classList.add('visible');
+        entryIO.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.entry').forEach(el => entryIO.observe(el));
+</script>
+
+</body>
+</html>
